@@ -4,6 +4,13 @@
 
 from sqlalchemy import create_engine
 from os import getenv
+from models.amenity import Amenity
+from models.base_model import BaseModel, Base
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 """database values retrieved via environment variables"""
 user = getenv("HBNB_MYSQL_USER")
