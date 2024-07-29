@@ -55,3 +55,7 @@ class FileStorage:
 
         """if obj is not None:
             for obj in""" 
+        
+    def close(self):
+        """call reload() method for deserializing the JSON file to objects"""
+        self.reload()

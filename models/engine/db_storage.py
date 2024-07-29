@@ -2,6 +2,8 @@
 """this modules creates new engine DBStorage"""
 
 
+from sqlalchemy.sql import text
+from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from os import getenv
 from models.amenity import Amenity
@@ -58,6 +60,11 @@ class DBStorage:
 
     def reload(self):
         """create all tables in the database"""
+        Base.metadata.create_all(self.__engine)
+        ses_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        Session = scoped_session(ses_factory)
+        self.__session = Session
 
     def close(self):
-        """"""
+        """calls remove()(sqlalchemy) on __session"""
+        self.__session.remove()
