@@ -10,7 +10,7 @@ Routes:
          of the text variable (replace underscore _ symbols with a space )
     The default value of text is “is cool”
     You must use the option strict_slashes=False in your route definition
-    """
+"""
 
 from flask import Flask
 
